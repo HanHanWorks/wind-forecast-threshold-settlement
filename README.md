@@ -6,11 +6,36 @@ Code for the paper:
 > day-ahead wind forecast accuracy under grid-code assessment**
 > *(manuscript under review — full citation to be added upon acceptance)*
 
-The paper reconstructs, at the resolution it is applied (the farm-month), the
-settlement rule that converts day-ahead wind forecast accuracy into assessed
-energy under a threshold-based grid code, and shows that the marginal value of
-accuracy is zero above the threshold and proportional to installed capacity
-below it.
+## Introduction
+
+Many power systems no longer merely report the day-ahead accuracy of a wind
+farm — they price it. A grid code sets a threshold on forecast accuracy and
+converts each point of shortfall into an assessed energy volume that the plant
+pays for. This repository contains the analysis behind an audit of such a
+settlement, carried out on the operational record of a provincial dispatch
+centre in southern China (25 wind farms, 32 months, two independent forecasting
+systems).
+
+The audit's central object is the **settlement rule** rather than the forecast.
+Written as a hinge, the rule makes one accuracy point worth a fixed multiple of
+installed capacity below the threshold and exactly zero above it. The paper
+reconstructs this function at the resolution at which it is applied — the
+farm-month — and follows three questions through the record:
+
+1. **Shape and location.** Where does the assessed energy actually sit across
+   farm-months, seasons and plant sizes, given the hinge?
+2. **Choice.** In how many farm-months would selecting a different forecasting
+   system change the bill at all?
+3. **Resolution.** Can the evaluation window used to choose between systems
+   distinguish them in the first place?
+
+The code in this repository recomputes every headline number of the paper from
+an input record with a documented schema: the ledger construction, the
+cross-tabulations across the threshold, the concentration and capacity-quartile
+decompositions, the moving-block bootstrap resolution analysis, the noise
+decomposition of farm-month accuracy, and the data-integrity checks. A
+synthetic sample generator produces a record with the same schema so that the
+workflow can be run and inspected without the confidential data.
 
 ## What is in this repository
 
@@ -31,9 +56,8 @@ bash reproduce.sh                 # generates sample data, then runs everything
 ```
 
 `reproduce.sh` fabricates a synthetic record (`data/make_sample_data.py`) with
-the same schema as the real one, then reproduces every figure, table and
-headline number from it. Outputs land in `outputs/figures/`,
-`outputs/figures_svg/`, `outputs/tables/` and `data/v5/*.json`.
+the same schema as the real one, then reproduces every table and headline
+number from it. Outputs land in `outputs/tables/` and `data/v5/*.json`.
 
 Every statistic is computed from whatever record is present in `data/`.
 The figure-generation scripts used for the manuscript are not part of this
