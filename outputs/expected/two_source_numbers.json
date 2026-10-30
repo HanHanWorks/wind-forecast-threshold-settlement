@@ -1,0 +1,220 @@
+{
+ "sample": {
+  "n_farmmonth": 620,
+  "n_farms": 25,
+  "n_months": 32,
+  "first_month": "2023-01",
+  "last_month": "2025-08",
+  "farms_first_month": 11,
+  "farms_2023_12": 18,
+  "farms_last_month": 25,
+  "n_farmmonth_daily_window": 570,
+  "n_farmmonth_complete": 545,
+  "total_capacity_MW": 3241.8,
+  "n_farmmonth_noise": 491
+ },
+ "systems": {
+  "source1": {
+   "mean_acc": 55.49,
+   "share_below60": 65.1,
+   "GWh_29m": 75.3,
+   "GWh_per_yr": 31.2
+  },
+  "incumbent": {
+   "mean_acc": 58.53,
+   "share_below60": 59.1,
+   "GWh_29m": 49.8,
+   "GWh_per_yr": 20.6
+  }
+ },
+ "gap_farmmonth": 3.04,
+ "delta_GWh_29m": 25.5,
+ "delta_GWh_per_yr": 10.6,
+ "crosstab": {
+  "inc_above_pct": 40.9,
+  "both_above_pct": 23.9,
+  "auction_bites_pct": 11.0,
+  "all_below_pct": 48.1,
+  "E_inc_above_pct": 0.0,
+  "E_auction_bites_pct": 14.1,
+  "E_all_below_pct": 85.9
+ },
+ "bins": {
+  "58-59": 33,
+  "59-60": 30,
+  "60-61": 32,
+  "61-62": 21,
+  "within_5pts_pct": 48.4,
+  "within_3pts_pct": 34.1
+ },
+ "concentration": {
+  "worst_5_pct": {
+   "count": 27,
+   "share_pct": 40.7
+  },
+  "worst_10_pct": {
+   "count": 54,
+   "share_pct": 56.2
+  },
+  "worst_20_pct": {
+   "count": 109,
+   "share_pct": 76.1
+  },
+  "worst_50_pct": {
+   "count": 272,
+   "share_pct": 98.6
+  }
+ },
+ "quartiles": {
+  "Q1": {
+   "n": 142,
+   "MW": 47.0,
+   "below60_pct": 79.6,
+   "E_share_pct": 19.9,
+   "MWh_per_point": 9.4
+  },
+  "Q2": {
+   "n": 133,
+   "MW": 86.0,
+   "below60_pct": 59.4,
+   "E_share_pct": 28.8,
+   "MWh_per_point": 17.3
+  },
+  "Q3": {
+   "n": 142,
+   "MW": 105.0,
+   "below60_pct": 59.9,
+   "E_share_pct": 32.1,
+   "MWh_per_point": 21.0
+  },
+  "Q4": {
+   "n": 128,
+   "MW": 251.0,
+   "below60_pct": 35.2,
+   "E_share_pct": 19.2,
+   "MWh_per_point": 50.3
+  }
+ },
+ "seasonality": {
+  "jan_mar_E_pct": 38.8,
+  "jul_sep_E_pct": 9.5
+ },
+ "noise": {
+  "n": 491,
+  "level": {
+   "observed_sd": 11.79,
+   "median_se": 3.41,
+   "rms_se": 6.64,
+   "noise_share_pct": 32,
+   "implied_true_sd": 9.74
+  },
+  "diff": {
+   "observed_sd": 11.51,
+   "median_se": 3.84,
+   "rms_se": 7.97,
+   "noise_share_pct": 48,
+   "implied_true_sd": 8.3,
+   "indistinguishable_pct": 71
+  }
+ },
+ "resolution": {
+  "main_src2_minus_src1": {
+   "n_days": 906,
+   "gap_points": 3.043,
+   "min_resolvable": {
+    "30": 6.265,
+    "45": 5.254,
+    "60": 4.499,
+    "75": 3.889,
+    "90": 3.481,
+    "105": 3.084,
+    "120": 2.787,
+    "150": 2.398,
+    "180": 2.134,
+    "240": 1.706,
+    "300": 1.467,
+    "365": 1.226
+   },
+   "gap_over_resolution_90d": 0.874,
+   "days_needed": 106.9,
+   "days_needed_extrapolated_from_90d": 118
+  },
+  "replicate_vendorF_minus_src1": {
+   "n_days": 864,
+   "gap_points": 0.181,
+   "min_resolvable": {
+    "30": 1.725,
+    "45": 1.438,
+    "60": 1.238,
+    "75": 1.127,
+    "90": 1.0,
+    "105": 0.934,
+    "120": 0.873,
+    "150": 0.757,
+    "180": 0.679,
+    "240": 0.56,
+    "300": 0.484,
+    "365": 0.411
+   },
+   "gap_over_resolution_90d": 0.181,
+   "days_needed": null,
+   "days_needed_extrapolated_from_90d": 2747
+  },
+  "variant_scale085_minus_src2": {
+   "n_days": 906,
+   "gap_points": 0.306,
+   "min_resolvable": {
+    "30": 4.589,
+    "45": 3.865,
+    "60": 3.392,
+    "75": 2.97,
+    "90": 2.672,
+    "105": 2.372,
+    "120": 2.156,
+    "150": 1.856,
+    "180": 1.661,
+    "240": 1.337,
+    "300": 1.133,
+    "365": 0.947
+   },
+   "gap_over_resolution_90d": 0.115,
+   "days_needed": null,
+   "days_needed_extrapolated_from_90d": 6858
+  },
+  "note": "circular moving-block bootstrap, 4000 replicates, seed 2024, L-grid [30, 45, 60, 75, 90, 105, 120, 150, 180, 240, 300, 365]; days_needed by log-linear crossing of the resolution curve, days_needed_extrapolated by inverse-square scaling from the 90-day estimate"
+ },
+ "vendor_replicate": {
+  "monthly": {
+   "rows": 545,
+   "identical": 496,
+   "identical_2023": 171,
+   "rows_2023": 171,
+   "identical_2024": 249,
+   "rows_2024": 249
+  },
+  "daily": {
+   "rows": 15601,
+   "identical": 15292,
+   "identical_pct": 98.0
+  }
+ },
+ "generation": {
+  "TWh_2024": 4.22,
+  "cap_factor_2024": 0.153,
+  "incumbent_bill_share_of_generation_pct": 0.49
+ },
+ "regime_split_2025_amendment": {
+  "2023-01_to_2024-12": {
+   "n": 420,
+   "inc_above_pct": 41.2,
+   "auction_bites_pct": 11.9,
+   "all_below_pct": 46.9
+  },
+  "2025-01_to_2025-05": {
+   "n": 125,
+   "inc_above_pct": 40.0,
+   "auction_bites_pct": 8.0,
+   "all_below_pct": 52.0
+  }
+ }
+}

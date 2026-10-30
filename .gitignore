@@ -1,0 +1,19 @@
+# Never commit data: the operational record is confidential and the sample data
+# is noise. Keep these rules even if you delete generated files locally.
+data/*.csv
+data/v5/
+data/raw/
+
+# Generated artefacts
+outputs/figures/
+outputs/figures_svg/
+outputs/tables/
+outputs/stats/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
