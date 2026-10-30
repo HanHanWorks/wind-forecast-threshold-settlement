@@ -24,12 +24,12 @@ import numpy as np
 import pandas as pd
 
 BASE = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
-FM = os.path.join(BASE, 'data', 'v5', 'farmmonth_v2_ext.csv')
-DAY = os.path.join(BASE, 'data', 'daily_acc_panel.csv')
-SE = os.path.join(BASE, 'data', 'v5', 'farmmonth_se.csv')
-NOISE = os.path.join(BASE, 'data', 'v5', 'gap_noise.json')
-REAL = os.path.join(BASE, 'data', 'v5', 'realmonth_stats.csv')
-OUT = os.path.join(BASE, 'data', 'v5', 'two_source_numbers.json')
+FM = os.path.join(BASE, '01_data', 'v5', 'farmmonth_v2_ext.csv')
+DAY = os.path.join(BASE, '01_data', 'daily_acc_panel.csv')
+SE = os.path.join(BASE, '01_data', 'v5', 'farmmonth_se.csv')
+NOISE = os.path.join(BASE, '01_data', 'v5', 'gap_noise.json')
+REAL = os.path.join(BASE, '01_data', 'v5', 'realmonth_stats.csv')
+OUT = os.path.join(BASE, '01_data', 'v5', 'two_source_numbers.json')
 
 THETA, K = 60.0, 0.2
 GRID = [30, 45, 60, 75, 90, 105, 120, 150, 180, 240, 300, 365]
@@ -222,6 +222,18 @@ out['vendor_replicate'] = {
         'rows': int(len(vd)), 'identical': int(same_d.sum()),
         'identical_pct': round(float(same_d.mean() * 100), 1),
     },
+}
+
+# --------------------------------------------------- 10b. regret of the award (eq:delta)
+oracle545 = np.minimum(w545.E_src1, w545.E_src2)
+oracle620 = np.minimum(led.E_src1, led.E_src2)
+out['regret_vs_oracle'] = {
+    'definition': 'Delta(pi) of eq. (2): sum over farm-months of V(pi) - min_s V(s)',
+    'incumbent_award_GWh_545': round(float(np.maximum(0, w545.E_src2 - oracle545).sum() / 1e3), 2),
+    'incumbent_award_GWh_per_yr': round(float(np.maximum(0, w545.E_src2 - oracle545).sum() / 1e3 * 12 / 29), 2),
+    'incumbent_share_of_bill_pct': round(float(np.maximum(0, w545.E_src2 - oracle545).sum() / w545.E_src2.sum() * 100), 1),
+    'source1_award_GWh_545': round(float(np.maximum(0, w545.E_src1 - oracle545).sum() / 1e3), 2),
+    'incumbent_award_GWh_620': round(float(np.maximum(0, led.E_src2 - oracle620).sum() / 1e3), 2),
 }
 
 # ---------------------------------------------------------------- 11. generation
