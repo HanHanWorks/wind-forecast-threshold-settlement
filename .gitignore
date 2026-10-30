@@ -9,6 +9,7 @@ outputs/figures/
 outputs/figures_svg/
 outputs/tables/
 outputs/stats/
+outputs/expected/two_source_numbers.json
 
 # Python
 __pycache__/

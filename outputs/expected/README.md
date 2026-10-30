@@ -1,10 +1,7 @@
-# Expected aggregates
+# Expected outputs
 
-`two_source_numbers.json` records every headline number of the published paper
-(Tables 1-3, 5, 7, the resolution analysis, the vendor-replicate integrity
-check and the generation denominators), recomputed by
-`code/stats/recompute_two_source.py` on the confidential record.
-
-All of these values are quoted in the paper itself; the file contains
-aggregate statistics only - no row-level data. Numbers produced by running the
-code on the synthetic sample will differ, and are not the paper's results.
+The published aggregate result file is not included in the public repository.
+It is generated locally by `code/stats/recompute_two_source.py` when an
+authorised copy of the confidential operational record is available. Running
+the workflow on the synthetic sample produces different values and does not
+reproduce the paper's empirical results.

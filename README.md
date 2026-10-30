@@ -16,13 +16,12 @@ below it.
 
 | Path | Contents |
 |---|---|
-| `code/figures/` | Hand-drawn SVG figure generator (Fig. 1, 5) and matplotlib figures (Fig. 2, 3, 4, 6) |
 | `code/stats/` | Every headline number in the paper: recomputation, bootstrap resolution analysis, noise decomposition, integrity checks |
 | `code/pipeline/` | Upstream pipeline: raw operational record → analysis-ready panels (runs where the raw data lives) |
 | `code/exploratory/` | One-off analyses and superseded scripts kept for provenance |
 | `data/` | Data dictionary, availability statement, and a synthetic sample-data generator |
-| `outputs/` | Generated figures and tables (git-ignored), plus `outputs/expected/` with the published aggregates |
-| `reproduce.sh` | One-command end-to-end run |
+| `outputs/` | Generated tables and statistics (git-ignored) |
+| `reproduce.sh` | One-command end-to-end run (statistics and tables) |
 
 ## Quick start
 
@@ -36,9 +35,9 @@ the same schema as the real one, then reproduces every figure, table and
 headline number from it. Outputs land in `outputs/figures/`,
 `outputs/figures_svg/`, `outputs/tables/` and `data/v5/*.json`.
 
-Figure 5's bootstrap curve is drawn from the published constants in
-`code/figures/make_fig1_nature.py`; every other figure and statistic is
-computed from whatever record is present in `data/`.
+Every statistic is computed from whatever record is present in `data/`.
+The figure-generation scripts used for the manuscript are not part of this
+release.
 
 ## Data availability
 
@@ -46,20 +45,22 @@ The operational record analysed in this paper — day-ahead forecasts and actual
 output at 15-minute resolution for 25 wind farms connected to a provincial
 dispatch centre in southern China (January 2023 – August 2025) — was provided
 under a data-sharing agreement and **cannot be redistributed**, in whole or in
-part. This repository therefore contains **code only**.
+part. This repository contains the analysis code and a synthetic sample-data
+generator. It does not contain the confidential operational data or record-level
+derived data.
 
 To make the code runnable without the record:
 
-* `data/README.md` documents every input file, column and unit;
+* `data/README.md` documents the input schemas needed to run the analysis on an
+  authorised local copy of the operational record;
 * `data/make_sample_data.py` generates a synthetic sample with the same schema.
   The sample resembles no real plant, forecast or settlement, and is for testing
   the software only — numbers produced from it are not the paper's results;
-* `outputs/expected/two_source_numbers.json` records the published aggregate
-  statistics (all of which appear in the paper itself) as a reference target.
 
-Derived tables sufficient to reproduce every figure and table of the paper are
-available from the corresponding author on reasonable request, subject to the
-data-sharing agreement.
+The synthetic sample is for checking that the scripts run and for illustrating
+the input schema. It does not reproduce the paper's empirical results. Reproducing
+those results requires the confidential operational record, which cannot be
+distributed. No derived record-level data are available for download.
 
 ## Environment
 
@@ -72,12 +73,11 @@ data-sharing agreement.
 
 With the confidential record placed as described in `data/README.md`, the same
 `reproduce.sh` reproduces the paper. `code/stats/recompute_two_source.py`
-writes `data/v5/two_source_numbers.json`, which contains every headline number
-quoted in the text, tables and abstract; `code/pipeline/` documents how the
-analysis-ready panels are built from the raw operational exports.
+writes `data/v5/two_source_numbers.json` from the input record; `code/pipeline/`
+documents how the analysis-ready panels are built from the raw operational exports.
 
 ## Citation and license
 
-Please cite the paper when using this code. Code released under the MIT
-License — see `LICENSE`. Fill in the author list in `LICENSE` and the citation
-block above before publishing the repository.
+Please cite the paper when using this code. Code is released under the MIT
+License; see `LICENSE`. A repository URL and Zenodo DOI will be added here when
+the public release and archive are created.

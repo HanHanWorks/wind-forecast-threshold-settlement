@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "One accuracy point is not one accuracy point: the threshold-shaped value of day-ahead wind forecast accuracy under grid-code assessment"
+message: "Please cite the paper and this software repository when using the code."
+type: software
+authors:
+  - family-names: Huang
+    given-names: Zihao
+  - family-names: Chen
+    given-names: Yan
+version: 0.1.0
+date-released: 2026-10-30
+license: MIT

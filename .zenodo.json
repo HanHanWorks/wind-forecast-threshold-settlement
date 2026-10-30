@@ -1,0 +1,12 @@
+{
+  "title": "One accuracy point is not one accuracy point: the threshold-shaped value of day-ahead wind forecast accuracy under grid-code assessment",
+  "description": "Analysis code and a synthetic sample-data generator for the accompanying Applied Energy manuscript. The confidential operational record is not included and cannot be redistributed.",
+  "creators": [
+    {"name": "Huang, Zihao"},
+    {"name": "Chen, Yan"}
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "publication_date": "2026-10-30",
+  "keywords": ["wind power forecasting", "forecast accuracy", "grid-code assessment", "energy settlement"]
+}

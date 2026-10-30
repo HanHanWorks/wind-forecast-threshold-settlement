@@ -6,8 +6,6 @@ Everything the paper's figures, tables and numbers are made of.
 
 | script | produces | notes |
 |---|---|---|
-| `make_fig1_nature.py` | Fig. 1, Fig. 5 (SVG → PDF/PNG) | hand-written SVG primitives, no plotting library; text stays editable. Fig. 5's bootstrap curve uses the published constants embedded in the script. |
-| `make_figures_svg.py` | Fig. 2, 3, 4, 6 (SVG + PDF + PNG) | matplotlib, drawn at final size (174 mm, 7 pt) |
 
 ## `stats/` — the numbers
 
